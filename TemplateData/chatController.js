@@ -75,8 +75,8 @@ function recieveChatMsg(username, playerColor, msg, color, atPlayer) {
 		var hyperlinkOpen = "<a href=\"" + url + "\" target=\"_blank\">";
 		var hyperlinkClose = "</a>";
 
-		msg = newChatLine.substr(0, matchInd) + hyperlinkOpen 
-		+ msg.substr(matchInd, matchInd + urlMatches[0].length) + hyperlinkClose 
+		msg = msg.substr(0, matchInd) + hyperlinkOpen 
+		+ msg.substr(matchInd, urlMatches[0].length) + hyperlinkClose 
 		+ msg.substr(matchInd + urlMatches[0].length);
 	}
 
