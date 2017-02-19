@@ -9,6 +9,8 @@ var favicon = document.getElementById('favicon');
 
 var urlRegexString = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
 var urlRegex = new RegExp(urlRegexString);
+var newLineRegexString = '\n';
+var newLineRegex = new RegExp(newLineRegexString, 'g');
 
 chatInput.onblur = function() {
    setTimeout(function() {
@@ -50,14 +52,15 @@ function sendChatMsg(msg) {
 
 function recieveChatMsg(username, playerColor, msg, color, atPlayer) {
 	var newChatLine = "";
+
+	//username:
 	if(username) {
 		newChatLine += "<font color=\"" + playerColor + "\">";
 		newChatLine += username + ":</font> ";
 	}
 
+	//@username
 	if(atPlayer) {
-		console.log(windowIsActive + "window active");
-		console.log("at this player");
 		if(!windowIsActive) {
 			flashFavicon();
 		} else {
@@ -65,6 +68,12 @@ function recieveChatMsg(username, playerColor, msg, color, atPlayer) {
 		}
 	}
 
+	console.log(msg);
+
+	//new lines
+	msg = msg.replace(newLineRegex, '</br>');
+	console.log(msg);
+	//url regex
 	var urlMatches = msg.match(urlRegex);
 	if(urlMatches) {
 		var url = urlMatches[0];
@@ -80,6 +89,7 @@ function recieveChatMsg(username, playerColor, msg, color, atPlayer) {
 		+ msg.substr(matchInd + urlMatches[0].length);
 	}
 
+	//msg color
 	newChatLine += "<font color=\"" + color + "\">"+msg+"</font></br>";
 
 	chatBox.innerHTML += newChatLine;
