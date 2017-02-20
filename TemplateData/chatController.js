@@ -7,7 +7,7 @@ var chatBox = document.getElementById("chatBox");
 var gameCanvas = document.getElementById("canvas");
 var favicon = document.getElementById('favicon');
 
-var urlRegexString = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+var urlRegexString = '(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})';
 var urlRegex = new RegExp(urlRegexString);
 var newLineRegexString = '\n';
 var newLineRegex = new RegExp(newLineRegexString, 'g');
@@ -68,11 +68,9 @@ function recieveChatMsg(username, playerColor, msg, color, atPlayer) {
 		}
 	}
 
-	console.log(msg);
-
 	//new lines
 	msg = msg.replace(newLineRegex, '</br>');
-	console.log(msg);
+	
 	//url regex
 	var urlMatches = msg.match(urlRegex);
 	if(urlMatches) {
