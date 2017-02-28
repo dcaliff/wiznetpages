@@ -95,9 +95,6 @@ function recieveChatMsg(username, playerColor, msg, color, atPlayer) {
 		}
 	}
 
-	//new lines
-	msg = msg.replace(newLineRegex, '</br>');
-	
 	//url regex
 	var urlMatches = msg.match(urlRegex);
 	if(urlMatches) {
@@ -113,6 +110,9 @@ function recieveChatMsg(username, playerColor, msg, color, atPlayer) {
 		+ msg.substr(matchInd, urlMatches[0].length) + hyperlinkClose 
 		+ msg.substr(matchInd + urlMatches[0].length);
 	}
+
+	//new lines
+	msg = msg.replace(newLineRegex, '</br>');
 
 	//msg color
 	newChatLine += "<font color=\"" + color + "\">"+msg+"</font></br>";
