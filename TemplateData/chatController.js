@@ -76,6 +76,7 @@ function sendChatMsg(msg) {
 
 function recieveChatMsg(username, playerColor, msg, color, atPlayer) {
 	msg = removeTags(msg);
+	username = removeTags(username);
 	
 	var newChatLine = "";
 
