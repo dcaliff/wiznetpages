@@ -95,21 +95,10 @@ function recieveChatMsg(username, playerColor, msg, color, atPlayer) {
 		}
 	}
 
-	console.log(msg);
-
-	
-
-	console.log('after br');
-	console.log(msg);
-
 	//url regex
 	var urlMatches = msg.match(urlRegex);
 	if(urlMatches) {
 		var url = urlMatches[0];
-		console.log(urlMatches[0]);
-		if(urlMatches.length > 1) {
-		console.log(urlMatches[1]);
-		}
 		if(url.indexOf("http://") < 0 && url.indexOf("https://") < 0) {
 			url = "http://" + url;
 		}
@@ -124,9 +113,6 @@ function recieveChatMsg(username, playerColor, msg, color, atPlayer) {
 
 	//new lines
 	msg = msg.replace(newLineRegex, '</br>');
-
-	console.log('after url');
-	console.log(msg);
 
 	//msg color
 	newChatLine += "<font color=\"" + color + "\">"+msg+"</font></br>";
