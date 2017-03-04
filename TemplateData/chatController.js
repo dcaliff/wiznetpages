@@ -36,12 +36,6 @@ function removeTags(html) {
   return html.replace(/</g, '&lt;');
 }
 
-chatInput.onblur = function() {
-   setTimeout(function() {
-    chatInput.focus();
-  }, 0);
-};
-
 var windowIsActive = true;
 window.onfocus = function () { 
 	windowIsActive = true; 
@@ -64,6 +58,12 @@ function login(username, password) {
 
 function loginSuccessful() {
 	loggedIn = true;
+
+	chatInput.onblur = function() {
+		setTimeout(function() {
+			chatInput.focus();
+		}, 0);
+	};
 }
 
 function createUser(username, password) {
