@@ -49,6 +49,10 @@ window.onblur = function () {
 var m_username;
 
 function onSubmit(msg) {
+	if(!loggedIn) {
+		return;
+	}
+
 	SendMessage('ChatClient', 'SubmitMessage', msg);
 }
 
@@ -64,6 +68,7 @@ function loginSuccessful() {
 			chatInput.focus();
 		}, 0);
 	};
+	chatInput.focus();
 }
 
 function createUser(username, password) {
