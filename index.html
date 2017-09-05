@@ -12,7 +12,7 @@
   </head>
   <!--<body class="template" bgcolor="#e600ac">-->
   <body class="template" bgcolor="#000000">
-    <div class="wiz-mud">
+    <div class="wiz-mud" id="wiz-mud">
       <div class="game-panel">
         <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" style="height:100%; width:100%" bgcolor="#000000"></canvas>
         <div id="loadingBg">
@@ -29,6 +29,14 @@
         <textarea id="chatInput" class="chat-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
       </div>
     </div>
+
+    <div class="wiz-mud" id="mobile-splash" style="display: none; color: white;">
+    	WIZMUD does not run on mobile <|:(</br>
+    	Please use a desktop. </br>
+    	Follow us on twitter for updates: <a href="https://twitter.com/wiz_mud">https://twitter.com/wiz_mud</a> </br>
+    	Or check out our Patreon: <a href="https://www.patreon.com/wizmud">https://www.patreon.com/wizmud</a></br>
+    	<img src="TemplateData/wizmudmobilesplash.gif" style="width:100%;">
+    </div>
     <script type='text/javascript'>
   var Module = {
     TOTAL_MEMORY: 536870912,
@@ -42,6 +50,7 @@
     memUrl: "Release/WebGLBuild.mem",
   };
 </script>
+<script src="TemplateData/detectMobile.js"></script>
 <script src="Release/UnityLoader.js"></script>
 
   </body>
